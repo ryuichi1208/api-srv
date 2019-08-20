@@ -1,5 +1,6 @@
 ---
 version: '3.7'
+
 services:
   check:
     container_name: check
@@ -9,8 +10,6 @@ services:
   proxy:
     container_name: proxy
     build: ./proxy
-    ports:
-      - "8080:80"
     deploy:
       replicas: 1
     volumes:

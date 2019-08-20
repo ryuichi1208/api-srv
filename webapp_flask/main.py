@@ -13,7 +13,7 @@ def index():
 
 @app.route('/api/flask/hello')
 def api():
-    return jsonify({'ip': request.remote_addr}), 200
+    return jsonify({'ip': request.environ.get('HTTP_X_REAL_IP', request.remote_addr)}), 200
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=80)
