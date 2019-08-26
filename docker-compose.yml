@@ -18,12 +18,20 @@ services:
       - "80:80"
       - "443:443"
     volumes:
+      - ./proxy/nginx.conf:/etc/nginx/nginx.conf
       - ./proxy/conf.d/default.conf:/etc/nginx/conf.d/default.conf
 
   web_flask:
     container_name: web_flask
     hostname: web_flask
     build: ./webapp_flask
+    deploy:
+      replicas: 1
+
+  web_flask_2:
+    container_name: web_flask_2
+    hostname: web_flask_2
+    build: ./webapp_flask_2
     deploy:
       replicas: 1
 
