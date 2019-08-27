@@ -1,4 +1,5 @@
 FROM nginx:1.17.3
-RUN apt update && apt upgrade \
-	&& apt install vim curl openssh \
+RUN apt update -y \
+	&& apt upgrade -y \
+	&& apt install -y vim curl openssl \
 	&& mkdir /etc/nginx/ssl
